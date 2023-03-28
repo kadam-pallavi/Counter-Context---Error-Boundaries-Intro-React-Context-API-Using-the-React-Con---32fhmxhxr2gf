@@ -1,20 +1,13 @@
-import React,{useContext} from 'react';
-import { counterContext } from '../counterContext';
-import { Counter } from './Counter';
+import React from 'react'
 
-export const CounterList = () =>{
-
-    const {count,setCount} = useContext(counterContext)
-
-    const onClick = () =>{
-        setCount(count+1)
-    }
+export const Counter = ({value,onClick , id}) =>{
 
     return(
-        <ol>
-            <li><Counter key={1} id="1" value={count} onClick={onClick}/></li>
-            <li><Counter key={2} id="2" value={count} onClick={onClick}/></li>
-            <li><Counter key={3} id="3" value={count} onClick={onClick}/></li>
-        </ol>
+        <div id={`counter-num-${id}`}>
+            <div id={`counter-${id}`}>{value}</div>
+            <button onClick={onClick}>Click to increase</button>
+        </div>
+        
     )
+
 }
